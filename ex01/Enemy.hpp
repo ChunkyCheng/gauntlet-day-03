@@ -14,7 +14,7 @@ class	Enemy : public Entity
 		std::string	describe() const override;
 	
 	private:
-		const int	m_hp;
-		Inventory	m_bag;
+		const int		m_hp;
+		const Inventory	m_bag;
 };
 
