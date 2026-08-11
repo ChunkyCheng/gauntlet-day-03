@@ -19,7 +19,7 @@ Entity::~Entity(void)
 
 void	Entity::takeDamage(int amount)
 {
-	int	newHp = std::max(m_currentHp - amount, 0);
+	int	newHp = std::min(std::max(m_currentHp - amount, 0), m_maxHp);
 
 	std::cout << m_name << " takes " << amount << " damage (" << m_currentHp << " -> " << newHp << " hp)" << std::endl;
 	m_currentHp = newHp;
@@ -27,7 +27,7 @@ void	Entity::takeDamage(int amount)
 
 void	Entity::heal(int amount)
 {
-	int newHp = std::min(m_currentHp + amount, m_maxHp);
+	int newHp = std::min(std::max(m_currentHp + amount, 0), m_maxHp);
 
 	//std::cout << m_name << " heals " << amount << " HP (" << m_currentHp << " -> " << newHp << " hp)" << std::endl;
 	m_currentHp = newHp;
